@@ -18,9 +18,15 @@ android {
     }
 
     buildTypes {
+
+        debug {
+            buildConfigField "String", "BASE_URL", '"https://api.sunnah.com/v1/"'
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", '"https://api.sunnah.com/v1/"'
         }
     }
     compileOptions {
@@ -39,7 +45,23 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //OkHttp
+    def okHttpVersion = '4.8.1'
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.7'
+
+    //Timber for logging
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
