@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/hadithBooksFragment">
+
+    <fragment
+        android:id="@+id/hadithBooksFragment"
+        android:name="miq0717.dailyislamcodesession.view.HadithBooksFragment"
+        android:label="fragment_hadith_books"
+        tools:layout="@layout/fragment_hadith_books">
+
+        <action
+            android:id="@+id/action_hadithBooksFragment_To_hadithChaptersOfABookFragment"
+            app:destination="@+id/chaptersOfAHadithBookFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/chaptersOfAHadithBookFragment"
+        android:name="miq0717.dailyislamcodesession.view.ChaptersOfAHadithBookFragment"
+        android:label="fragment_hadith_chapters_of_a_book"
+        tools:layout="@layout/fragment_chapters_of_a_hadith_book">
+
+        <action
+            android:id="@+id/action_chaptersOfAHadithBookFragment_to_hadithsOfAChapterFragment"
+            app:destination="@+id/hadithsOfAChapterFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/hadithsOfAChapterFragment"
+        android:name="miq0717.dailyislamcodesession.view.HadithsOfAChapterFragment"
+        android:label="fragment_hadiths_of_chapter"
+        tools:layout="@layout/fragment_hadiths_of_a_chapter">
+
+        <action
+            android:id="@+id/action_hadithsOfAChapterFragment_to_hadithDetailsWithTranslationFragment"
+            app:destination="@+id/hadithDetailsWithTranslationFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/hadithDetailsWithTranslationFragment"
+        android:name="miq0717.dailyislamcodesession.view.HadithDetailsWithTranslationFragment"
+        android:label="fragment_cat_wise_book_list"
+        tools:layout="@layout/fragment_hadith_details_with_translation" />
+</navigation>
