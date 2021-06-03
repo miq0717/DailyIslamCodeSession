@@ -1,16 +1,15 @@
 package miq0717.dailyislamcodesession
 
 import android.app.Application
-import miq0717.dailyislamcodesession.network.ApiClient
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
-
+@HiltAndroidApp
 class InitApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        ApiClient.init()
 
         if (BuildConfig.DEBUG) {
             Timber.plant(object : DebugTree() {

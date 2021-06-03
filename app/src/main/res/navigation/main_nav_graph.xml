@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/hadithBooksFragment"
-        android:name="miq0717.dailyislamcodesession.view.HadithBooksFragment"
+        android:name="miq0717.dailyislamcodesession.ui.HadithBooksFragment"
         android:label="fragment_hadith_books"
         tools:layout="@layout/fragment_hadith_books">
 
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/chaptersOfAHadithBookFragment"
-        android:name="miq0717.dailyislamcodesession.view.ChaptersOfAHadithBookFragment"
+        android:name="miq0717.dailyislamcodesession.ui.ChaptersOfAHadithBookFragment"
         android:label="fragment_hadith_chapters_of_a_book"
         tools:layout="@layout/fragment_chapters_of_a_hadith_book">
 
@@ -38,7 +38,7 @@
 
     <fragment
         android:id="@+id/hadithsOfAChapterFragment"
-        android:name="miq0717.dailyislamcodesession.view.HadithsOfAChapterFragment"
+        android:name="miq0717.dailyislamcodesession.ui.HadithsOfAChapterFragment"
         android:label="fragment_hadiths_of_chapter"
         tools:layout="@layout/fragment_hadiths_of_a_chapter">
 
@@ -53,7 +53,7 @@
 
     <fragment
         android:id="@+id/hadithDetailsWithTranslationFragment"
-        android:name="miq0717.dailyislamcodesession.view.HadithDetailsWithTranslationFragment"
+        android:name="miq0717.dailyislamcodesession.ui.HadithDetailsWithTranslationFragment"
         android:label="fragment_cat_wise_book_list"
         tools:layout="@layout/fragment_hadith_details_with_translation" />
 </navigation>

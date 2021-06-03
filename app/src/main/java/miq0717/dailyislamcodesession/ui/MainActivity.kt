@@ -1,12 +1,13 @@
-package miq0717.dailyislamcodesession.view
+package miq0717.dailyislamcodesession.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dagger.hilt.android.AndroidEntryPoint
 import miq0717.dailyislamcodesession.R
-import miq0717.dailyislamcodesession.network.ApiClient
-import timber.log.Timber
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

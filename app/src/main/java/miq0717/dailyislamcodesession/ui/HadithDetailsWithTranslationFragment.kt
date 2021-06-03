@@ -1,4 +1,4 @@
-package miq0717.dailyislamcodesession.view
+package miq0717.dailyislamcodesession.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import miq0717.dailyislamcodesession.R
-import miq0717.dailyislamcodesession.databinding.FragmentHadithsOfAChapterBinding
+import miq0717.dailyislamcodesession.databinding.FragmentHadithDetailsWithTranslationBinding
 
-class HadithsOfAChapterFragment : Fragment() {
-    private lateinit var binding: FragmentHadithsOfAChapterBinding
+class HadithDetailsWithTranslationFragment : Fragment() {
+
+    private lateinit var binding: FragmentHadithDetailsWithTranslationBinding
     private lateinit var navController: NavController
 
     override fun onCreateView(
@@ -19,7 +19,7 @@ class HadithsOfAChapterFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHadithsOfAChapterBinding.inflate(inflater, container, false)
+        binding = FragmentHadithDetailsWithTranslationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,10 +32,6 @@ class HadithsOfAChapterFragment : Fragment() {
     }
 
     private fun initClickListeners() {
-        binding.tvNext.setOnClickListener {
-            if (navController.currentDestination?.id == R.id.hadithsOfAChapterFragment) {
-                navController.navigate(R.id.action_hadithsOfAChapterFragment_to_hadithDetailsWithTranslationFragment)
-            }
-        }
+
     }
 }
