@@ -18,7 +18,8 @@ import kotlinx.android.synthetic.main.toolbar_with_custom_back.view.*
 import miq0717.dailyislamcodesession.R
 import miq0717.dailyislamcodesession.databinding.FragmentHadithBooksBinding
 import miq0717.dailyislamcodesession.ui.adapter.HadithBooksAdapter
-import miq0717.dailyislamcodesession.ui.viewmodel.MainViewModel
+import miq0717.dailyislamcodesession.ui.viewmodel.HadithBooksViewModel
+import miq0717.dailyislamcodesession.util.AppConstants
 import miq0717.dailyislamcodesession.util.Status
 import miq0717.dailyislamcodesession.util.ToastUtil.showShortToast
 import timber.log.Timber
@@ -28,7 +29,7 @@ class HadithBooksFragment : Fragment() {
 
     private lateinit var binding: FragmentHadithBooksBinding
     private lateinit var navController: NavController
-    private val mainViewModel by viewModels<MainViewModel>()
+    private val hadithBooksViewModel by viewModels<HadithBooksViewModel>()
     private lateinit var hadithBooksAdapter: HadithBooksAdapter
 
     private var hasInitializedRootView = false
@@ -49,9 +50,11 @@ class HadithBooksFragment : Fragment() {
         if (!hasInitializedRootView) {
             hasInitializedRootView = true
             navController = Navigation.findNavController(view)
-            hadithBooksAdapter = HadithBooksAdapter(arrayListOf()) {
+            hadithBooksAdapter = HadithBooksAdapter(arrayListOf()) { collectionName ->
                 if (navController.currentDestination?.id == R.id.hadithBooksFragment) {
-                    navController.navigate(R.id.action_hadithBooksFragment_To_hadithChaptersOfABookFragment)
+                    val bundle = Bundle()
+                    bundle.putString(AppConstants.COLLECTION_NAME, collectionName)
+                    navController.navigate(R.id.action_hadithBooksFragment_To_hadithChaptersOfABookFragment, bundle)
                 }
             }
 
@@ -84,7 +87,7 @@ class HadithBooksFragment : Fragment() {
     }
 
     private fun setupObserver() {
-        mainViewModel.hadithBooks.observe(viewLifecycleOwner, { it ->
+        hadithBooksViewModel.hadithBooks.observe(viewLifecycleOwner, { it ->
             when (it.status) {
                 Status.LOADING -> {
                     binding.progressBar.visibility = VISIBLE
@@ -111,6 +114,6 @@ class HadithBooksFragment : Fragment() {
     }
 
     private fun getHadithBooks() {
-        mainViewModel.getHadithBooks()
+        hadithBooksViewModel.getHadithBooks()
     }
 }

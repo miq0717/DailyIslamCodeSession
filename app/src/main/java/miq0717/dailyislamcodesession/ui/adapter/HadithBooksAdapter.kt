@@ -9,7 +9,7 @@ import miq0717.dailyislamcodesession.databinding.ListItemHadithBookBinding
 
 class HadithBooksAdapter(
     private val hadithBooks: ArrayList<HadithBookDatum>,
-    private val onClick: () -> Unit
+    private val onClick: (collectionName: String) -> Unit
 ) : RecyclerView.Adapter<HadithBooksAdapter.HadithBooksViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = HadithBooksViewHolder(
@@ -33,7 +33,7 @@ class HadithBooksAdapter(
             binding.tvHadithBookName.text = aHadithBook.hadithBookCollectionDataByLanguage[0].title
             binding.tvNumberOfHadiths.text = binding.root.context.getString(R.string.total_hadiths, aHadithBook.totalHadith.toString())
             binding.container.setOnClickListener {
-                onClick.invoke()
+                onClick.invoke(aHadithBook.name)
             }
         }
     }

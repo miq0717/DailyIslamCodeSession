@@ -3,15 +3,7 @@ package miq0717.dailyislamcodesession.data.repository
 import miq0717.dailyislamcodesession.data.api.ApiHelper
 import javax.inject.Inject
 
-class MainRepository @Inject constructor(private val apiHelper: ApiHelper) {
-
-    suspend fun getHadithBooks(
-        limit: Int,
-        page: Int
-    ) = apiHelper.getHadithBooks(
-        limit = limit,
-        page = page
-    )
+class ChaptersOfAHadithBookRepository @Inject constructor(private val apiHelper: ApiHelper) {
 
     suspend fun getChaptersOfAHadithBook(
         collectionName: String,
