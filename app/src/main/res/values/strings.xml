@@ -7,6 +7,7 @@
     <string name="hadith_books">Hadith books</string>
     <string name="hadith_chapters">Hadith chapters</string>
     <string name="hadiths">Hadiths</string>
+    <string name="hadith">Hadith</string>
     <string name="hadith_number">Hadith number: %s</string>
     <string name="hadith_grade">Hadith grade: %s</string>
 </resources>

@@ -98,7 +98,6 @@ class HadithBooksFragment : Fragment() {
                 }
 
                 Status.SUCCESS -> {
-                    Timber.i("hadithBooks: ${it.data}")
                     binding.progressBar.visibility = GONE
                     it.data?.let {
                         hadithBooksAdapter.addData(hadithBooks = it.hadithBookDatum)
