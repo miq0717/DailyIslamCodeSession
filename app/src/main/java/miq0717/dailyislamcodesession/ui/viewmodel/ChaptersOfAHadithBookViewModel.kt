@@ -43,7 +43,7 @@ class ChaptersOfAHadithBookViewModel @ViewModelInject constructor(
                 }
             } else _chaptersOfAHadithBook.postValue(
                 Resource.error(
-                    "Please connect to internet",
+                    "Please connect to internet and try again",
                     null
                 )
             )

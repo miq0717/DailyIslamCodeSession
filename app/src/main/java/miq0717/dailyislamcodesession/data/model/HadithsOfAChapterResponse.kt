@@ -14,14 +14,14 @@ data class HadithInfoDatum(
     val collection: String,
     val bookNumber: Int,
     val chapterId: String,
-    val hadithNumber: Int,
+    val hadithNumber: String,
     @Json(name = "hadith") val hadithDetailDataByLanguage: List<HadithDetailDataByLanguage>,
 )
 
 data class HadithDetailDataByLanguage(
     val lang: String,
-    val chapterNumber: String,
-    val chapterTitle: String,
+    val chapterNumber: String?,
+    val chapterTitle: String?,
     val urn: Long,
     @Json(name = "body") val hadithBody: String,
     @Json(name = "grades") val hadithGradeData: List<HadithGradeData>

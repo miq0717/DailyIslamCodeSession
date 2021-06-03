@@ -26,8 +26,8 @@ class ChaptersOfAHadithBookAdapter(
     override fun onBindViewHolder(holder: HadithBooksViewHolder, position: Int) =
         holder.bind(aHadithChapter = hadithChapters[position])
 
-    fun addData(hadithBooks: List<ChapterOfAHadithBookDatum>) {
-        this.hadithChapters.addAll(hadithBooks)
+    fun addData(hadithChapters: List<ChapterOfAHadithBookDatum>) {
+        this.hadithChapters.addAll(hadithChapters)
         notifyDataSetChanged()
     }
 
@@ -42,7 +42,11 @@ class ChaptersOfAHadithBookAdapter(
                 aHadithChapter.numberOfHadith.toString()
             )
             binding.container.setOnClickListener {
-                onClick.invoke(aHadithChapter.bookNumber)
+                try {
+                    onClick.invoke(aHadithChapter.bookNumber.toInt())
+                } catch (e: Exception) {
+                    onClick.invoke(aHadithChapter.bookNumber.substring(0, aHadithChapter.bookNumber.indexOf(",")).toInt())
+                }
             }
         }
     }

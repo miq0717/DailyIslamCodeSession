@@ -40,7 +40,7 @@ class DetailsOfAHadithViewModel @ViewModelInject constructor(
                         )
                     )
                 }
-            } else _detailsOfAHadith.postValue(Resource.error("Please connect to internet", null))
+            } else _detailsOfAHadith.postValue(Resource.error("Please connect to internet and try again", null))
         }
     }
 }

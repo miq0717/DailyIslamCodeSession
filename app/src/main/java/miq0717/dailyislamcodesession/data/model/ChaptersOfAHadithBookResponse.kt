@@ -11,7 +11,7 @@ data class ChaptersOfAHadithBookResponse(
 )
 
 data class ChapterOfAHadithBookDatum(
-    val bookNumber: Int,
+    val bookNumber: String,
     @Json(name = "book") val chapterInfoByLanguage: List<ChapterInfoByLanguage>,
     val hadithStartNumber: Int,
     val hadithEndNumber: Int,

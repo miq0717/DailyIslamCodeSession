@@ -54,7 +54,10 @@ class HadithBooksFragment : Fragment() {
                 if (navController.currentDestination?.id == R.id.hadithBooksFragment) {
                     val bundle = Bundle()
                     bundle.putString(AppConstants.COLLECTION_NAME, collectionName)
-                    navController.navigate(R.id.action_hadithBooksFragment_To_hadithChaptersOfABookFragment, bundle)
+                    navController.navigate(
+                        R.id.action_hadithBooksFragment_To_hadithChaptersOfABookFragment,
+                        bundle
+                    )
                 }
             }
 

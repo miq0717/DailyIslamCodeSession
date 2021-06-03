@@ -32,7 +32,7 @@ class HadithBooksViewModel @ViewModelInject constructor(
                         _hadithBooks.postValue(Resource.success(it.body()))
                     } else _hadithBooks.postValue(Resource.error(it.errorBody().toString(), null))
                 }
-            } else _hadithBooks.postValue(Resource.error("Please connect to internet", null))
+            } else _hadithBooks.postValue(Resource.error("Please connect to internet and try again", null))
         }
     }
 }

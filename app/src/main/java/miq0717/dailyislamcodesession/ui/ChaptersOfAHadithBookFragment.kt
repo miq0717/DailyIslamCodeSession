@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.toolbar_with_custom_back.view.*
 import miq0717.dailyislamcodesession.R
 import miq0717.dailyislamcodesession.databinding.FragmentChaptersOfAHadithBookBinding
 import miq0717.dailyislamcodesession.ui.adapter.ChaptersOfAHadithBookAdapter
-import miq0717.dailyislamcodesession.ui.adapter.HadithBooksAdapter
 import miq0717.dailyislamcodesession.ui.viewmodel.ChaptersOfAHadithBookViewModel
 import miq0717.dailyislamcodesession.util.AppConstants
 import miq0717.dailyislamcodesession.util.Status
@@ -58,11 +57,18 @@ class ChaptersOfAHadithBookFragment : Fragment() {
         if (!hasInitializedRootView) {
             hasInitializedRootView = true
             navController = Navigation.findNavController(view)
-            chaptersOfAHadithBookAdapter = ChaptersOfAHadithBookAdapter(arrayListOf()) {
-                if (navController.currentDestination?.id == R.id.chaptersOfAHadithBookFragment) {
-                    navController.navigate(R.id.action_chaptersOfAHadithBookFragment_to_hadithsOfAChapterFragment)
+            chaptersOfAHadithBookAdapter =
+                ChaptersOfAHadithBookAdapter(arrayListOf()) { bookNumber ->
+                    if (navController.currentDestination?.id == R.id.chaptersOfAHadithBookFragment) {
+                        val bundle = Bundle()
+                        bundle.putInt(AppConstants.BOOK_NUMBER, bookNumber)
+                        bundle.putString(AppConstants.COLLECTION_NAME, collectionName)
+                        navController.navigate(
+                            R.id.action_chaptersOfAHadithBookFragment_to_hadithsOfAChapterFragment,
+                            bundle
+                        )
+                    }
                 }
-            }
 
             initUI()
             setupToolbar()
@@ -86,7 +92,7 @@ class ChaptersOfAHadithBookFragment : Fragment() {
 
     private fun setupToolbar() {
         val toolbar: Toolbar = binding.root.findViewById(R.id.toolbar)
-        toolbar.myCustomTitle.text = context?.getString(R.string.hadith_books)
+        toolbar.myCustomTitle.text = context?.getString(R.string.hadith_chapters)
         toolbar.setNavigationOnClickListener {
             requireActivity().onBackPressed()
         }
@@ -104,7 +110,7 @@ class ChaptersOfAHadithBookFragment : Fragment() {
                     Timber.i("hadithBooks: ${it.data}")
                     binding.progressBar.visibility = View.GONE
                     it.data?.let {
-                        chaptersOfAHadithBookAdapter.addData(hadithBooks = it.chaptersDatum)
+                        chaptersOfAHadithBookAdapter.addData(hadithChapters = it.chaptersDatum)
                     }
                     binding.rvHadithChapters.visibility = View.VISIBLE
                 }

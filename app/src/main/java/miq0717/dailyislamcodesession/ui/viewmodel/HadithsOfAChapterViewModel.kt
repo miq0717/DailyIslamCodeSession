@@ -6,10 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import miq0717.dailyislamcodesession.data.model.ChaptersOfAHadithBookResponse
-import miq0717.dailyislamcodesession.data.model.HadithInfoDatum
 import miq0717.dailyislamcodesession.data.model.HadithsOfAChapterResponse
-import miq0717.dailyislamcodesession.data.repository.ChaptersOfAHadithBookRepository
 import miq0717.dailyislamcodesession.data.repository.HadithsOfAChapterRepository
 import miq0717.dailyislamcodesession.util.NetworkHelper
 import miq0717.dailyislamcodesession.util.Resource
@@ -47,7 +44,7 @@ class HadithsOfAChapterViewModel @ViewModelInject constructor(
                         )
                     )
                 }
-            } else _hadithsOfAChapter.postValue(Resource.error("Please connect to internet", null))
+            } else _hadithsOfAChapter.postValue(Resource.error("Please connect to internet and try again", null))
         }
     }
 }
