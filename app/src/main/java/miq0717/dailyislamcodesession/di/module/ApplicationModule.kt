@@ -1,5 +1,6 @@
 package miq0717.dailyislamcodesession.di.module
 
+import androidx.room.RoomDatabase
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

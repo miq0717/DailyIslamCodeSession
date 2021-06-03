@@ -3,7 +3,6 @@ package miq0717.dailyislamcodesession.data.model
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-
 data class HadithBooksResponse(
     @Json(name = "data") val hadithBookDatum: List<HadithBookDatum>,
     val total: Int,
